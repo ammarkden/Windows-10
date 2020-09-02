@@ -1,0 +1,186 @@
+<html>
+<head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link href="https://fonts.googleapis.com/css?family=Vibes&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Anton|Oswald&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="all.css">
+<script src="https://kit.fontawesome.com/d0e6f5b54a.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="windows.css">
+</head>
+<div class= 'desktop-container'>
+  <div class='desktop'>
+      <div class='dbl-click-option'>
+        <ul>
+          <li class="dbl-click-options">
+            New
+          </li>
+          <li class="dbl-click-options">
+            Get Info
+          </li>
+          <li class="dbl-click-options">
+            Change Background
+          </li>
+
+        </ul>
+      </div>
+  </div>
+
+
+  <div class='start-menu animated slideInUp'>
+      <div class='start-menu-apps'>
+          <ul>
+            <li class="lis toggle-btn">
+                <div>
+                  <i class="fas fa-adjust">
+                    Light Mode
+                    <div class="toggle-adjust">
+                        <div class="ball">
+                        </div>
+                    </div>
+                  </i>
+
+                </div>
+            </li>
+            <li class="lis">
+                <div>
+                  <i class="fab fa-facebook-square">
+                      Facebook
+                  </i>
+
+                </div>
+            </li>
+
+            <li class="lis">
+                <div>
+                    <i class="fab fa-instagram">
+                      Instgram
+                  </i>
+
+                </div>
+            </li>
+
+            <li class="lis">
+                <div>
+                    <i class="fab fa-whatsapp-square">
+                      Whatsapp
+                  </i>
+
+                </div>
+            </li>
+
+          </ul>
+
+      </div>
+</div>
+
+  <div class='bar-container'>
+    <div class = 'search-bar'>
+      <input type="text" class="search-input" placeholder="Type here to Search "></input>
+  </div>
+    <div class='bar'>
+      <div class='start-btn'>
+        <i class="fab fa-windows windows-icon"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>
+
+
+<script>
+    $('.start-btn').click(()=>{
+      if($('.dbl-click-option').is(':visible')){
+        $('.dbl-click-option').hide()
+      }
+        $('.start-menu').toggle()
+    })
+
+
+
+    var X=0,Y=0
+
+    $('.desktop').mousemove(()=>{
+       X = event.clientX
+       Y = event.clientY
+       $('h1').text(Y)
+    })
+
+    $('.desktop').dblclick(()=>{
+      if(Y > 630){
+        $('.dbl-click-option').css('top',Y - 190 +'px')
+      }
+      else {
+        $('.dbl-click-option').css('top',Y+'px')
+      }
+      $('.dbl-click-option').css('left',X+'px')
+      $('.dbl-click-option').toggle()
+    })
+    $('.dbl-click-option').click((event)=>{
+      event.stopPropagation();
+
+    })
+
+    $('.desktop').click(()=>{
+        if($('.start-menu').is(':visible') || $('.dbl-click-option').is(':visible') )
+        {
+            $('.start-menu').hide()
+            $('.dbl-click-option').hide()
+        }
+    })
+
+    /* Hovers */
+
+    $('.start-btn').hover(()=> {
+      $('.start-btn').toggleClass('start-btn-hover')
+    })
+
+    $('.lis').hover(
+      function(){
+        $(this).addClass('grey-hover')
+      },
+      function(){
+        $(this).removeClass('grey-hover')
+      }
+    )
+
+    $('.toggle-btn').click(()=>{
+      $('.ball').toggleClass('on-ball')
+      $('.bar').toggleClass('whiteMode')
+      $('.search-input').toggleClass('black-search-bar')
+      $('.start-btn').toggleClass('white-start-btn')
+      $('.windows-icon').toggleClass('black-fa-windows')
+      $('.start-menu').toggleClass('white-start-menu')
+      $('.lis').toggleClass('black-lis')
+      $('.dbl-click-option').toggleClass('white-wallpaper')
+      $('.dbl-click-options').toggleClass('black-text')
+      $('.toggle-adjust').toggleClass('black-toggle-adjust')
+
+      $('.start-btn').hover(()=> {
+        $('.start-btn').toggleClass('white-start-btn-hover')
+      })
+
+      $('.lis').hover(
+        function(){
+          $(this).addClass('silver-hover')
+        },
+        function(){
+          $(this).removeClass('silver-hover')
+
+        }
+      )
+
+    })
+
+
+
+
+
+</script>
